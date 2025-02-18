@@ -96,8 +96,8 @@
                 <img src="<?php the_field('big_3'); ?>" alt="">
               </div>
               <div class="inner-block right text-block come-to-view">
-                <p class="ja"><?php the_field('column_3'); ?></p>
-                <p class="en"><?php the_field('column_4'); ?></p>
+                <p class="ja"><?php the_field('column_11'); ?></p>
+                <p class="en"><?php the_field('column_12'); ?></p>
               </div>
             </div>
           </div>
