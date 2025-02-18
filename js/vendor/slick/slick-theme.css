@@ -77,10 +77,11 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.slick-prev
+/* .slick-prev
 {
     left: -25px;
-}
+    background-color: aqua;
+} */
 [dir='rtl'] .slick-prev
 {
     right: -25px;

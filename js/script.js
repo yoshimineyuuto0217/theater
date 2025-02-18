@@ -19,7 +19,7 @@ $(window).on('load', function () {
       $('.mainv-img').slick({
         autoplay: true,
         autoplaySpeed: 3000,
-        speed: 3000,
+        speed: 0,
         pauseOnHover: false,
         pauseOnFocus: false,
         dots: true,
@@ -121,7 +121,7 @@ $(window).on('load', function () {
       var windowHeight = $(window).height();
       var windowWidth = $(window).width();
       $('.mainv-img, .mainv-img .item, .works-title-back .inner').css('height', windowHeight + 'px');
-      $('.main-contents').css('padding-top', windowHeight + 'px');
+      // $('.main-contents').css('padding-top', windowHeight + 'px');
     };
   
   
