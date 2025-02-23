@@ -114,6 +114,7 @@ body {
   color: black;
   position: relative;
   z-index: 1;
+  
 }
 
 body.fixed {
@@ -183,8 +184,9 @@ body.fixed {
 .header-firstview .header-fixed .header-fixed-inner .right .header-navi .item .link {
   font-size: 1.4rem;
   letter-spacing: 0.2em;
-  color: black;
+  color: white;
   position: relative;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
 }
 
 .header-firstview .header-fixed .header-fixed-inner .right .header-navi .item .link::before {
@@ -209,8 +211,6 @@ body.fixed {
 }
 
 .header-firstview .header-fixed .header-fixed-inner .right .header-navi .item.fa {
-  background-image: url(/assets/svg/instagram-logo-svgrepo-com.svg);
-  background-size: 20px;
   background-repeat: no-repeat;
   padding-right: 20px;
   margin-top: 4px;
@@ -223,7 +223,6 @@ body.fixed {
 }
 
 .header-firstview .header-fixed .header-fixed-inner .right .header-navi .item.in {
-  background-image: url(/assets/svg/instagram-logo-svgrepo-com.svg);
   background-size: 20px;
   background-repeat: no-repeat;
   padding-right: 34px;
@@ -237,7 +236,6 @@ body.fixed {
 }
 
 .header-firstview .header-fixed .header-fixed-inner .right .header-navi .item.online {
-  background-image: url(/assets/images/icon_cart_white.png);
   background-size: 20px 18px;
   background-position: top 6px left;
   background-repeat: no-repeat;
@@ -351,7 +349,6 @@ body.fixed {
 }
 
 .header .header-fixed .header-fixed-inner .right .header-navi .item.fa {
-  background-image: url(/img/icon_fa_black.png);
   background-size: 20px;
   background-repeat: no-repeat;
   padding-right: 20px;
@@ -365,7 +362,6 @@ body.fixed {
 }
 
 .header .header-fixed .header-fixed-inner .right .header-navi .item.in {
-  background-image: url(/img/icon_in_black.png);
   background-size: 20px;
   background-repeat: no-repeat;
   padding-right: 34px;
@@ -379,7 +375,6 @@ body.fixed {
 }
 
 .header .header-fixed .header-fixed-inner .right .header-navi .item.online {
-  background-image: url(/assets/svg/instagram-logo-svgrepo-com.svg);
   background-size: 20px 18px;
   background-position: top 6px left;
   background-repeat: no-repeat;
@@ -398,7 +393,8 @@ body.fixed {
 
 .header .header-fixed .header-fixed-inner .left a img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .link-common {
@@ -699,7 +695,15 @@ div#load div.inner {
 /* INDEX
 /*-------------------------------------------*/
 .index .column {
-  display: block;
+  display:block;
+  /* writing-mode: vertical-rl; /* 右から左へ縦書き */
+  /* text-orientation: upright;   */
+}
+.index .column-res {
+  position: absolute;
+  width: 350px;
+  top: 0;
+  right: 5%;
   /* writing-mode: vertical-rl; /* 右から左へ縦書き */
   /* text-orientation: upright;   */
 }
@@ -738,7 +742,6 @@ div#load div.inner {
   height: 55px;
   bottom: 55px;
   background-color: #242c2e;
-  background-image: url(/assets/images/矢印右.png);
   background-size: 24px 8px;
   background-position: right 24px center;
   background-repeat: no-repeat;
@@ -881,7 +884,8 @@ div#load div.inner {
 
 .index .section.about .about-inner .block.about-img .about-slider1 .item {
   width: 100%;
-  height: 400px;
+  aspect-ratio: 16/9; /* 16:9の比率に固定 */
+  overflow: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -890,7 +894,7 @@ div#load div.inner {
 .index .section.about .about-inner .block.about-img .about-slider1 .item img {
   width: 100%;
   height: 100%;
-
+  object-fit: cover;
 }
 
 .index .section.about .about-inner .block .inner-block .ja.text {
@@ -913,7 +917,6 @@ div#load div.inner {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(/assets/images/works_back.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -928,6 +931,7 @@ div#load div.inner {
   height: 34.375vw;
   max-height: 660px;
   min-height: 440px;
+  object-fit: cover;
   background: transparent;
 }
 
@@ -1075,24 +1079,26 @@ div#load div.inner {
 
 .index .section.works1 .works-inner .material .inner-wrapper .left img {
   width: 100%;
-  height: auto;
+  max-height: 650px;
+  object-fit: cover;
 }
 
 .index .section.works1 .works-inner .material .inner-wrapper .right {
   position: absolute;
   right: 0;
   z-index: 1;
-  bottom: -15%;
+  top: 15%;
 }
 
 .index .section.works1 .works-inner .technique {
-  background: #ececec;
   padding-bottom: 264px;
+  position: relative;
 }
 
 .index .section.works1 .works-inner .technique .title-wrapper {
-  left: 9.375%;
-  top: -80px;
+  position: absolute;
+  top: 0;
+  left: 5%;
 }
 
 .index .section.works1 .works-inner .technique .title-wrapper .en {
@@ -1102,6 +1108,8 @@ div#load div.inner {
 .index .section.works1 .works-inner .technique .inner-wrapper {
   position: relative;
 }
+
+
 
 .index .section.works1 .works-inner .technique .inner-wrapper .text-block {
   min-height: 530px;
@@ -1115,8 +1123,8 @@ div#load div.inner {
 
 .index .section.works1 .works-inner .technique .inner-wrapper .right img {
   width: 100%;
-  max-height: 500px;
-  height: auto;
+  max-height: 650px;
+  object-fit: cover;
 }
 
 .index .section.works1 .works-inner .technique .inner-wrapper .left {
@@ -1364,23 +1372,17 @@ div#load div.inner {
   background-color: #242c2e;
 }
 
-.index .section.works2 .works-inner .online .inner .cart-block.on .img-wrapper {
-  background-image: url(/assets/svg/instagram-logo-svgrepo-com\ \(1\).svg);
-}
+
 
 .index .section.works2 .works-inner .online .inner .cart-block:hover {
   background-color: #242c2e;
 }
 
-.index .section.works2 .works-inner .online .inner .cart-block:hover .img-wrapper {
-  background-image: url(/assets/svg/instagram-logo-svgrepo-com\ \(1\).svg);
-}
 
 .index .section.works2 .works-inner .online .inner .cart-block .img-wrapper {
   display: block;
   width: 100%;
   height: 100%;
-  background-image: url(/assets/images/icon_cart_black_large.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 84px;
@@ -1649,37 +1651,7 @@ div#load div.inner {
   background-repeat: no-repeat;
 }
 
-/* .index .section.contact .contact-inner .right .back-img-list .item.item1 {
-  background-image: url(/assets/images/contact1.jpg);
-}
 
-.index .section.contact .contact-inner .right .back-img-list .item.item2 {
-  background-image: url(/assets/images/contact5.jpg);
-}
-
-.index .section.contact .contact-inner .right .back-img-list .item.item3 {
-  background-image: url(/assets/images/contact1.jpg);
-}
-
-.index .section.contact .contact-inner .right .back-img-list .item.item4 {
-  background-image: url(/assets/images/contact1.jpg);
-}
-
-.index .section.contact .contact-inner .right .back-img-list .item.item5 {
-  background-image: url(/assets/images/contact1.jpg);
-}
-
-.index .section.contact .contact-inner .right .back-img-list .item.item6 {
-  background-image: url(/assets/images/contact5.jpg);
-}
-
-.index .section.contact .contact-inner .right .back-img-list .item.item7 {
-  background-image: url(/assets/images/contact1.jpg);
-}
-
-.index .section.contact .contact-inner .right .back-img-list .item.item8 {
-  background-image: url(/assets/images/contact5.jpg);
-} */
 
 .index .footer .footer-wrapper {
   position: relative;
@@ -1692,7 +1664,6 @@ div#load div.inner {
   top: -95px;
   right: 1.4%;
   width: 82px;
-  background-image: url(/img/arrow_page_top.png);
   background-size: 14px;
   background-repeat: no-repeat;
   background-position: right center;
@@ -1863,7 +1834,7 @@ div#load div.inner {
     width: 20px;
     height: 1px;
     border-radius: 0px;
-    background-color: #fff;
+    background-color: white;
     position: absolute;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
@@ -2217,7 +2188,7 @@ div#load div.inner {
     margin-top: -50px;
   }
   .index .section.works1 .works-inner .technique {
-    padding-bottom: 70px;
+    padding-bottom: 120px;
   }
   .index .section.works1 .works-inner .technique .title-wrapper {
     left: 9.375%;
@@ -2481,14 +2452,46 @@ div#load div.inner {
 }
 /*# sourceMappingURL=common.css.map */
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 横スクロールを防ぐ */
+}
+
 .movie {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden; /* はみ出る部分を隠す */
+  width: 100%;
+  height: 100dvh;
+  min-height: -webkit-fill-available; /* iOS対応 */
 }
 
 .movie video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 画面いっぱいに表示しつつ、縦横比を保つ */
+  max-width: 100vw;
+  object-fit: cover;
+}
+
+
+
+.theater {
+  width: 70vw;
+  max-width: 100%; /* はみ出さないように */
+  height: auto;
+  aspect-ratio: 16 / 9; /* 16:9 の形を保つ */
+}
+
+.theater img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* スマホのとき */
+@media screen and (max-width: 780px) {
+  .theater {
+    width: 100%;
+    height: 300px; /* 高さを小さくする */
+  }
 }

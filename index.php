@@ -7,10 +7,12 @@
     <div class="inner"></div>
   </div>
   <section class="movie">
-    <video autoplay muted poster="<?php echo get_template_directory_uri(); ?>/assets/video/thumbnail.jpg">
-        <source src="<?php echo get_template_directory_uri(); ?>/assets/video/video_541018042629357812-5l8bD9fy.mp4" type="video/mp4">
+  <video loop autoplay muted>
+  <source  src="<?php echo get_template_directory_uri(); ?>/assets/video/theater-sp900.mp4" type="video/mp4" media="(max-width: 850px)">
+    <source  src="<?php echo get_template_directory_uri(); ?>/assets/video/theater-pc.mp4" type="video/mp4">
     </video>
-  </section>
+</section>
+
   </div>
   <section class="main-contents">
     <div class="main-contents-inner" id="contentsTop">
@@ -24,13 +26,8 @@
               <p class="text"><?php the_field('about_text'); ?></p>
             </div>
           </div>
-          <div class="block about-img come-to-view">
-            <ul class="about-slider1 pc sp">
-              <li class="item img1"><img src="<?php the_field('works_1');?>" alt=""   class="pc"></li>
-              <li class="item img2"><img src="<?php the_field('works_2');?>" alt=""   class="pc"></li>
-              <li class="item img3"><img src="<?php the_field('works_3');?>" alt=""   class="pc"></li>
-              <li class="item img4"><img src="<?php the_field('works_4');?>"alt=""   class="pc"></li>
-            </ul>
+          <div class="block about-img come-to-view theater">
+              <img src="<?php the_field('works_1');?>" alt="" >
           </div>
           <div class="block bottom">
             <div class="inner-block ja come-to-view">
@@ -76,7 +73,7 @@
             <div class="title-wrapper come-to-view">
               <h3 class="ja"><span class="column"><?php the_field('column_5'); ?><br><?php the_field('column_6'); ?></span></h3>
             </div>
-            <div class="inner-wrapper">
+            <div class="inner-wrapper ">
               <div class="inner-block right img-block come-to-view">
                 <img src="<?php the_field('big_2'); ?>" alt="">
               </div>
@@ -103,58 +100,9 @@
           </div>
         </div>
       </section>
-      <!-- <section class="section works2">
-        <div class="works-inner">
-          <div class="block original-brand come-to-view">
-            <div class="wrapper">
-              <div class="inner">
-                <p class="en left writing-vertical font-en"><?php the_field('grid_text'); ?><span class="blank"><?php the_field('grid_text_1'); ?></span></p>
-                <div class="right" >
-                  <div class="img-wrapper">
-                    <img src="/assets/images/hover_bland.png" alt="" class="hover-layer">
-                    <img src="<?php the_field('grid_4'); ?>" alt="ORIGINAL BRAND - nobegane">
-                  </div>
-                  <p class="ja"><?php the_field('grid_text_2'); ?></p>
-                  <div class="en font-en link link-common large original"><?php the_field('grid_text_3'); ?></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="block online">
-            <div class="wrapper">
-              <div class="inner">
-                <div  class="img-block" id="onlineShopLink1">
-                  <img src="/assets/images/hover_online.png" alt="" class="hover-layer come-to-view">
-                  <img src="<?php the_field('grid_6'); ?>" alt="ONLINE SHOP" class="img1 come-to-view">
-                  <img src="<?php the_field('grid_3'); ?>" alt="" class="img2 come-to-view">
-                  <p class="en online-title font-en come-to-view"><?php the_field('grid_text_4'); ?></p>
-                </div>
-                <div class="cart-block" id="onlineShopLink2"><span class="img-wrapper"></span></div>
-              </div>
-            </div>
-          </div>
-          <div class="img-block1 come-to-view">
-            <div class="wrapper">
-              <img src="<?php the_field('grid_4'); ?>" alt="">
-            </div>
-          </div>
-          <div class="img-block2 come-to-view">
-            <div class="wrapper">
-              <img src="<?php the_field('grid_3'); ?>"  alt="" class="img">
-            </div>
-          </div>
-          <div class="img-block3">
-            <div class="wrapper">
-              <img src="<?php the_field('grid_2'); ?>" alt="" class="img-small come-to-view">
-              <img src="<?php the_field('grid_1'); ?>"  alt="" class="img-large come-to-view">
-            </div>
-          </div>
-        </div>
-      </section> -->
       <section class="section company" id="company">
         <div class="company-inner">
           <div class="block img-block come-to-view">
-            <img src="/assets/images/company_dummy.png" alt="" class="pc dummy">
             <div class="profile">
               <div class="left">
               <img src="<?php the_field('company_1'); ?>" alt="">

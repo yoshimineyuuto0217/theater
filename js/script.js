@@ -1,6 +1,6 @@
-/*-------------------------------------------*/
-/* LOAD
-/*-------------------------------------------*/
+// /*-------------------------------------------*/
+// /* LOAD
+// /*-------------------------------------------*/
 
 $(window).on('load', function () {
     $('#load div.inner').delay(300).fadeOut(500);
@@ -9,85 +9,7 @@ $(window).on('load', function () {
   
   
   $(function () {
-  
-    /*-------------------------------------------*/
-    /* SLIDER
-    /*-------------------------------------------*/
-  
-    setTimeout(function () {
-  
-      $('.mainv-img').slick({
-        autoplay: true,
-        autoplaySpeed: 3000,
-        speed: 0,
-        pauseOnHover: false,
-        pauseOnFocus: false,
-        dots: true,
-        arrows: false,
-        fade: true,
-      });
-    }, 1800);
-  
-    /*-------------------*/
-    /* SLIDE NUMBERING
-    /*------------------*/
-  
-    let currentPageNumSetUp = function () {
-      let className = $('.mainv-img .slick-current').attr("class");
-      let class_Array = className.split(" ");
-      let str = class_Array[0]
-      let number = str.substring(4, 5);
-      let numberSet = "0" + number;
-      $('.slick-num .nowcnt').text(numberSet);
-    }
-  
-    setInterval(currentPageNumSetUp, 3100);
-  
-  
-    $('.about-slider1').slick({
-      autoplay: true,
-      autoplaySpeed: 3000,
-      speed: 1000,
-      pauseOnHover: false,
-      pauseOnFocus: false,
-      dots: false,
-      fade: true,
-      arrows: true,
-      // prevArrow: '<img src="/assets/images/left.png" class="slide-arrow prev-arrow" width="60" height="60">',
-      // nextArrow: '<img src="/assets/images/right.png" class="slide-arrow next-arrow" width="60" height="60">',
-    });
-  
-  
-    $('.works-slider1').slick({
-      autoplay: true,
-      autoplaySpeed: 5000,
-      speed: 3000,
-      pauseOnHover: false,
-      pauseOnFocus: false,
-      dots: true,
-      fade: true,
-      asNavFor: '.works-slider2',
-      arrows: true,
-      // prevArrow: '<img src="/assets/images/left.png" class="slide-arrow prev-arrow" width="60" height="60">',
-      // nextArrow: '<img src="/assets/images/right.png" class="slide-arrow next-arrow" width="60" height="60">',
-    });
-  
-  
-    $('.works-slider2').slick({
-      autoplay: true,
-      autoplaySpeed: 5000,
-      speed: 3000,
-      pauseOnHover: false,
-      pauseOnFocus: false,
-      arrows: false,
-      fade: true,
-      asNavFor: '.works-slider1',
-      centerMode: true,
-      centerPadding: '0',
-    });
-  
-  
-  
+
     /*-------------------------------------------*/
     /* HOVER ADDCLASS
     /*-------------------------------------------*/
@@ -111,9 +33,9 @@ $(window).on('load', function () {
     );
   
   
-    /*-------------------------------------------*/
-    /* MAINV SETHEIGHT
-    /*-------------------------------------------*/
+//     /*-------------------------------------------*/
+//     /* MAINV SETHEIGHT
+//     /*-------------------------------------------*/
   
     setHeight();
   
@@ -125,9 +47,9 @@ $(window).on('load', function () {
     };
   
   
-    /*-------------------------------------------*/
-    /* INVIEW
-    /*-------------------------------------------*/
+//     /*-------------------------------------------*/
+//     /* INVIEW
+//     /*-------------------------------------------*/
   
     $('.come-to-view').on('inview', function (event, isInView) {
       if (isInView) {
@@ -136,10 +58,10 @@ $(window).on('load', function () {
     });
   
   
-    // /*-------------------------------------------*/
-    // /* SMOOTHSCROll
-    // /*-------------------------------------------*/
-    //
+//     // /*-------------------------------------------*/
+//     // /* SMOOTHSCROll
+//     // /*-------------------------------------------*/
+//     //
   
     //on click
     var anchorClassInMobileMenu = '.sp-menu a.link[href^="#"]'
@@ -184,9 +106,9 @@ $(window).on('load', function () {
   
   
   
-    /*-------------------------------------------*/
-    /* HEADER SCROLL STYLE SETUP
-    /*-------------------------------------------*/
+//     /*-------------------------------------------*/
+//     /* HEADER SCROLL STYLE SETUP
+//     /*-------------------------------------------*/
   
     $(window).scroll(function () {
       let windowOffset = window.pageYOffset;
@@ -234,9 +156,9 @@ $(window).on('load', function () {
   
   
   
-    // /*-------------------------------------------*/
-    // /* DRAWER MENU
-    // /*-------------------------------------------*/
+//     // /*-------------------------------------------*/
+//     // /* DRAWER MENU
+//     // /*-------------------------------------------*/
     // on click
     $('#switch, #firstviewSwitch, ' + anchorClassInMobileMenu).click(function () {
       $('header').removeClass('click');
@@ -284,9 +206,9 @@ $(window).on('load', function () {
   
   
   
-    /*-------------------------------------------*/
-    /* SPMENU REMOVE CLASS
-    /*-------------------------------------------*/
+//     /*-------------------------------------------*/
+//     /* SPMENU REMOVE CLASS
+//     /*-------------------------------------------*/
   
     spStyleSetUp();
   
@@ -321,55 +243,110 @@ $(window).on('load', function () {
         setHeight();
       }, 200);
     });
-  
-  
-  
-    /*-------------------------------------------*/
-    /* CURRENT SECTION MARKE
-    /*-------------------------------------------*/
-  
-    $(window).on('resize scroll', function () {
-      let posTop = 0;
-      let posAbout = Math.round($("#about").offset().top);
-      let posWorks = Math.round($("#works").offset().top);
-      let posCompany = Math.round($("#company").offset().top);
-      let posContact = Math.round($("#contact").offset().top);
-      let $windowWidth = $(window).width();
-      let adjust = 0;
-      let $currentItem = $(".header-navi .item .link");
-  
-      if ($windowWidth > 999) {
-        adjust = 100;
+  });
+
+//    /*-------------------------------------------*/
+//     /* CURRENT SECTION MARKE
+//     /*-------------------------------------------*/
+    
+  $(document).ready(function () {
+    // ホーム以外のページから `#company` に移動したらスムーズスクロール
+    if (location.hash) {
+      let hash = location.hash;
+      if ($(hash).length) {
+        setTimeout(function () {
+          smoothScroll(hash);
+        }, 500); // ページ読み込み後に少し遅延させてスクロール
       }
-      else {
-        adjust = 70;
-      }
-      if (!($('body').hasClass('fixed'))) {
+    }
   
-        let posScroll = $(window).scrollTop();
-        if (posTop <= posScroll && posScroll < posAbout - adjust) {
-          $currentItem.removeClass('current');
-          //TOP
-          $(".navi0").addClass('current');
-        } else if (posAbout - adjust <= posScroll && posScroll < posWorks - adjust) {
-          $currentItem.removeClass('current');
-          //ABOUT
-          $(".navi1").addClass('current');
-        } else if (posWorks - adjust <= posScroll && posScroll < posCompany - adjust) {
-          $currentItem.removeClass('current');
-          //WORKS
-          $(".navi2").addClass('current');
+    // すべてのアンカーリンクにクリックイベントを適用
+    $('a[href^="' + window.location.origin + '/#"]').click(function (e) {
+      e.preventDefault();
+      let hash = this.hash;
+  
+      // ページが `/contact` なら `home` へ遷移し、スムーズスクロールを実行
+      if (window.location.pathname.includes('/contact')) {
+        window.location.href = '/' + hash;
+      } else {
+        smoothScroll(hash);
+      }
+    });
+  
+    function smoothScroll(hash) {
+      let target = $(hash);
+      if (target.length) {
+        let offset = $(window).width() >= 1000 ? 80 : 60; // スクロール時の調整
+        let position = target.offset().top - offset;
+  
+        $("html, body").animate({
+          scrollTop: position
+        }, 700, "swing");
+      }
+    }
+  });
+
+  (function($) {
+    $(document).ready(function () {
+      // ハンバーガーメニューを閉じる関数
+      function closeHamburgerMenu() {
+        $('.header, #switch, #menu-back').removeClass('open');
+        $('#menu-back').fadeOut(300);
+        $('body').removeClass('fixed').css({ 'top': 0 });
+      }
+  
+      // URL にハッシュ (`#about`, `#works`, `#company`) があればスムーズスクロール
+      if (location.hash) {
+        let hash = location.hash;
+        if ($(hash).length) {
+          setTimeout(function () {
+            smoothScroll(hash);
+          }, 500); // 遅延させてスクロール
         }
-        else if (posCompany - adjust <= posScroll && posScroll < posContact - adjust) {
-          $currentItem.removeClass('current');
-          //COMPANY
-          $(".navi3").addClass('current');
+      }
+  
+      // すべてのアンカーリンクにクリックイベントを適用
+      $('.sp-menu a[href^="' + window.location.origin + '/#"]').click(function (e) {
+        e.preventDefault();
+        let hash = this.hash;
+  
+        // 現在のページが `/` なら、ハンバーガーメニューを閉じてスムーズスクロール
+        if (window.location.pathname === '/') {
+          closeHamburgerMenu();
+          smoothScroll(hash);
+        } 
+        // `/contact` なら `/` に遷移し、スクロール位置を記憶
+        else if (window.location.pathname.includes('/contact')) {
+          sessionStorage.setItem('scrollTo', hash);
+          window.location.href = '/';
         }
-        else if (posContact - adjust <= posScroll) {
-          $currentItem.removeClass('current');
-          //CONATCT
-          $(".navi4").addClass('current');
+      });
+  
+      // `/` に遷移後、記憶したスクロール位置へ移動
+      if (sessionStorage.getItem('scrollTo')) {
+        let targetHash = sessionStorage.getItem('scrollTo');
+        sessionStorage.removeItem('scrollTo'); // 使い終わったら削除
+  
+        if ($(targetHash).length) {
+          setTimeout(function () {
+            smoothScroll(targetHash);
+          }, 500);
+        }
+      }
+  
+      function smoothScroll(hash) {
+        let target = $(hash);
+        if (target.length) {
+          let offset = $(window).width() >= 1000 ? 80 : 60; // スクロール位置調整
+          let position = target.offset().top - offset;
+  
+          $("html, body").animate({
+            scrollTop: position
+          }, 700, "swing");
         }
       }
     });
-  });
+  })(jQuery);
+
+
+  
