@@ -21,12 +21,9 @@
                 <li class="item"><a class="link font-en navi2" href="<?php echo esc_url(home_url( '/#works')); ?>">WORKS</a></li>
                 <li class="item"><a class="link font-en navi3" href="<?php echo esc_url(home_url( '/#company')); ?>">COMPANY</a></li>
                 <li class="item"><a class="link font-en navi4" href="<?php echo esc_url(home_url( '/contact')); ?>">CONTACT</a></li>
-                <li class="item fa"><a class="link" target="_blank" rel="noopener"
-                    href=""></a></li>
-                <li class="item in"><a class="link" target="_blank" rel="noopener"
-                    href=""></a></li>
               </ul>
             </nav>
+            <!-- 小さくなったの時のハンバーガーボタン ここは変更しなくていい-->
             <button class="sp-menu-button sp" id="firstviewSwitch">
               <div class="inner">
                 <span class="line line1"></span>
@@ -42,13 +39,11 @@
   </header>
   <header class="header" id="header">
     <div class="header-wrapper">
+      <!-- div classのheader-fixedを消してheader classのheader-firstviewをスクロールしたら固定するようにするのとハンバーガメーニューを動くようにする -->
       <div class="header-fixed">
         <div class="header-fixed-inner">
           <div class="header-row left">
-            <h1 class="header-logo black"><a href="#pageTop"><img src="<?php the_field('scroll_logo'); ?>"
-                   ></a></h1>
-            <h1 class="header-logo white"><a href="#pageTop"><img src="<?php the_field('scroll_logo'); ?>"
-                  alt="theater" ></a></h1>
+            <h1 class="header-logo black"><a href="#pageTop"><img src="<?php the_field('scroll_logo'); ?>"></a></h1>
           </div>
           <div class="right">
             <nav id="" class="header-navi-wrapper pc">
@@ -69,6 +64,7 @@
           </div>
         </div>
       </div>
+      <!-- ハンバーガメニュー出てきておした時に出るナビゲーしょンコード -->
       <nav id="menu-back" class="sp-menu">
         <div class="sp-menu-wrapper layer">
           <div class="sp-menu-inner">
@@ -81,10 +77,6 @@
                   <li class="item"><a class="link font-en navi3" href="<?php echo esc_url(home_url('/#company')); ?>">COMPANY</a></li>
                   <li class="item"><a class="link font-en navi4" href="<?php echo esc_url(home_url( '/contact')); ?>">CONTACT</a></li>
                 </ul>
-              </div>
-              <div class="footer-block">
-                <div class="nobegane-block"><a class="link nobegane-link font-en" target="_blank" rel="noopener"
-                    href=""></div>
               </div>
             </div>
           </div>
